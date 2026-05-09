@@ -1,1 +1,57 @@
 GET http://localhost:8000/api/test 
+###
+GET http://localhost:8000/api/employees
+###
+POST http://localhost:8000/api/employees
+Content-Type: application/json
+
+{
+    "first_name":"John",
+    "last_name":"Doe",
+        "email":"john.doe@example.com",
+        "gender":"Male",
+        "birthday":"1990-01-01",
+        "date_hired":"2020-01-01",
+        "salary":50000
+}
+###
+POST http://localhost:8000/api/employees/
+Content-Type: application/json
+
+{
+"first_name":"Peter",
+"last_name":"Pan",
+"email":"peter.pan@example.com",
+"gender":"Male",
+"birthday":"1991-01-01",
+"date_hired":"2021-01-01",
+"salary":40000
+}
+###
+PUT http://localhost:8000/api/employees/3
+Content-Type: application/json
+
+{
+    "first_name":"John1",
+    "last_name":"Doe",
+       
+        "gender":"Male",
+        "birthday":"1990-01-01",
+        "date_hired":"2020-01-01",
+        "salary":50000
+}
+###
+DELETE http://localhost:8000/api/employees/1
+###
+PUT http://localhost:8000/api/employees/4
+Content-Type: application/json
+
+{
+"first_name":"Peter",
+"last_name":"The boy",
+
+"gender":"Male",
+"birthday":"1992-01-01",
+"date_hired":"2022-01-01",
+"salary":45000
+}

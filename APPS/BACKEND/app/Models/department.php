@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class department extends Model
+class Department extends Model
 {
     protected $table = 'departments';
 
@@ -16,6 +16,6 @@ class department extends Model
     ];
     public function employees(): HasMany
     {
-        return $this->hasMany(employee::class);
+        return $this->hasMany(Employee::class);
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class employee extends Model
+class Employee extends Model
 {
     protected $table = 'employees';
 
@@ -22,7 +22,7 @@ class employee extends Model
 
     public function department(): BelongsTo
     {
-        return $this->belongsTo(department::class, 'department_id');
+        return $this->belongsTo(Department::class, 'department_id');
     }
 
     public function project(): BelongsToMany
