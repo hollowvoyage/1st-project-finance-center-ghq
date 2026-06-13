@@ -4,10 +4,11 @@ import CreateEmployee from "./pages/CreateEmployee";
 import { fetchAllEmployees } from "./services/employeeService";
 import type { Employee } from "./types/employee";
 import type { Pensioner } from "./types/pensioner";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
-import "./App.css";
+import PensionerTable from "./components/PensionerTable";
 import CreatePensioner from "./pages/CreaatePensioner";
 import { fetchAllPensioners } from "./services/pensionerService";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import "./App.css";
 
 function App() {
   //props -> properties, parameter pipasan
@@ -31,6 +32,7 @@ function App() {
         <Routes>
           <Route path="/" element={<EmployeeTable employees={employees} />} />
           <Route path="/employee/create" element={<CreateEmployee />} />
+          <Route path="/pensioner" element={<PensionerTable pensioners={pensioners} />} />
           <Route path="/pensioner/create" element={<CreatePensioner />} />
         </Routes>
       </BrowserRouter>

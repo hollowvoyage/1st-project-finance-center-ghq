@@ -39,19 +39,24 @@ class PensionerController extends Controller
         try {
             //validation
             $validatedData = $request->validate([
-                'serial_number' => 'required|string|max:10',
-                'control_number' => 'required|string|max:20',
+                'serial_number' => 'required|string|max:10|unique:pensioners',
+                'control_number' => 'required|string|max:20|unique:pensioners',
                 'last_name' => 'required|string|max:100',
                 'first_name' => 'required|string|max:100',
                 'middle_name' => 'nullable|string|max:100',
-                'pension_account' => 'required|string|max:100',
-                'rank' => 'required|string|max:100',
-                'bank_name' => 'required|string|max:100',
+                'pension_account' => 'required|string|max:20',
+                'rank' => 'required|string|max:50',
+                'bank_name' => 'required|string|max:255',
                 'amount_centavos' => 'required|numeric|min:0',
                 'retirement_date' => 'required|date'
             ]);
 
-            $pensioner = Pensioner::create($validatedData);
+            $pensionerData = [ 
+                ...$validatedData,
+                'amount_centavos' => (int) $validatedData['amount_centavos'] * 100
+            ];
+
+            $pensioner = Pensioner::create($pensionerData);
             //insert into pensioners (serial_number, control_number) values ('SN001', 'CN001');
             $response = [
                 'success' => true,
@@ -99,14 +104,20 @@ class PensionerController extends Controller
                 'last_name' => 'required|string|max:100',
                 'first_name' => 'required|string|max:100',
                 'middle_name' => 'nullable|string|max:100',
-                'pension_account' => 'required|string|max:100',
-                'rank' => 'required|string|max:100',
-                'bank_name' => 'required|string|max:100',
+                'pension_account' => 'required|string|max:20',
+                'rank' => 'required|string|max:50',
+                'bank_name' => 'required|string|max:255',
                 'amount_centavos' => 'required|numeric|min:0',
                 'retirement_date' => 'required|date'
             ]);
 
-            $pensioner->update($validatedData);
+ $pensionerData = [ 
+                ...$validatedData,
+                'amount_centavos' => (int) $validatedData['amount_centavos'] * 100
+            ];
+
+            $pensioner->update($pensionerData);
+
 
             return response()->json($pensioner, 200);
         } catch (\Exception $e) {

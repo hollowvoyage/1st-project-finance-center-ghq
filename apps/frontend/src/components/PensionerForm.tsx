@@ -44,12 +44,12 @@ function PensionerForm({ loadPensioners }: { loadPensioners: () => void }) {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="serial_number">Serial Number:</label>
-          <input id="serial_number" name="serial_number" required type="text" />
+          <input id="serial_number" name="serial_number" required type="text" maxLength={10} />
         </div>
 
         <div>
           <label htmlFor="control_number">Control Number:</label>
-          <input id="control_number" name="control_number" required type="text" />
+          <input id="control_number" name="control_number" required type="text" maxLength={20} />
         </div>
 
  <div>
@@ -69,12 +69,12 @@ function PensionerForm({ loadPensioners }: { loadPensioners: () => void }) {
 
 <div>
           <label htmlFor="pension_account">Pension Account:</label>
-          <input id="pension_account" name="pension_account" required type="text" />
+          <input id="pension_account" name="pension_account" required type="text" maxLength={20} />
         </div>
 
 <div>
           <label htmlFor="rank">Rank:</label>
-          <input id="rank" name="rank" required type="text" />
+          <input id="rank" name="rank" required type="text" maxLength={50} />
         </div>
 
 <div>

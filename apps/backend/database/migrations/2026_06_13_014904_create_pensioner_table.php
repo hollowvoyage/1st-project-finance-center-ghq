@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('first_name', 100);
             $table->string('middle_name', 100)->nullable();
             $table->string('pension_account', 20);
-            $table->string('rank', 20);
+            $table->string('rank', 50);
             $table->string('bank_name', 50);
             $table->bigInteger('amount_centavos')->default(0);
             $table->date('retirement_date');
